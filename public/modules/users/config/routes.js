@@ -24,6 +24,10 @@ angular.module('users').config(['$stateProvider',
 		state('signin', {
 			url: '/signin',
 			templateUrl: 'modules/users/views/signin.html'
-		});
+		}).
+        state('editProfile', {
+            url: '/users/:userId/edit',
+            templateUrl: 'modules/users/views/edit.html'
+        });
 	}
 ]);
