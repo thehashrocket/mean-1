@@ -27,5 +27,6 @@ angular.module('mean.users').controller('AuthenticationController', ['$scope', '
                 $scope.error = data.message;
             });
         };
+        
     }
 ]);
