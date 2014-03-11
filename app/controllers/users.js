@@ -32,6 +32,14 @@ var getErrorMessage = function(err) {
 	return message;
 };
 
+
+/**
+ * Show the current profile
+ */
+exports.read = function(req, res) {
+    res.jsonp(req.user);
+};
+
 /**
  * Signup
  */

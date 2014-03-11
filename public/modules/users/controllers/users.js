@@ -2,6 +2,7 @@
 
 angular.module('mean.users').controller('UsersController', ['$scope', '$stateParams', '$location', 'Authentication', 'Users',
     function($scope, $stateParams, $location, Authentication, Users) {
+
         $scope.authentication = Authentication;
 
         $scope.update = function() {
