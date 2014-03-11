@@ -7,6 +7,14 @@ var mongoose = require('mongoose'),
 	passport = require('passport'),
 	User = mongoose.model('User');
 
+
+/**
+ * Show the current profile
+ */
+exports.read = function(req, res) {
+    res.jsonp(req.user);
+};
+
 /**
  * Signup
  */

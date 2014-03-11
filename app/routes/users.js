@@ -48,6 +48,8 @@ module.exports = function(app) {
 		failureRedirect: '/#!/signin'
 	}), users.authCallback);
 
+    app.get('/users/:userId', users.read);
+
 	// Finish by binding the user middleware
 	app.param('userId', users.userByID);
 };
