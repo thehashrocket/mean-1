@@ -31,6 +31,41 @@ var UserSchema = new Schema({
 		default: '',
 		trim: true,
 	},
+    phoneNumber: {
+        type: String,
+        default: '',
+        trim: true
+    },
+    businessName: {
+        type: String,
+        default: '',
+        trim: true
+    },
+    streetAddress: {
+        type: String,
+        default: '',
+        trim: true
+    },
+    unitNumber: {
+        type: String,
+        default: '',
+        trim: true
+    },
+    city: {
+        type: String,
+        default: '',
+        trim: true
+    },
+    state: {
+        type: String,
+        default: '',
+        trim: true
+    },
+    zip: {
+        type: String,
+        default: '',
+        trim: true
+    },
 	username: {
 		type: String,
 		default: '',
