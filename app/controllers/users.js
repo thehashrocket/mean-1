@@ -54,6 +54,7 @@ var getErrorMessage = function(err) {
 	return message;
 };
 
+
 /**
  * Show the current profile
  */
@@ -239,6 +240,25 @@ exports.oauthCallback = function(strategy) {
 			});
 		})(req, res, next);
 	};
+};
+
+/**
+ * Update a article
+ */
+exports.update = function(req, res) {
+    var user = req.user;
+
+    user = _.extend(user, req.body);
+
+    user.save(function(err) {
+        if (err) {
+            res.render('error', {
+                status: 500
+            });
+        } else {
+            res.jsonp(user);
+        }
+    });
 };
 
 /**
