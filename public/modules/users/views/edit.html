@@ -5,7 +5,7 @@
     <div class="col-sm-12">
         <form class="form-horizontal" data-ng-submit="update()">
             <fieldset>
-                <div class="col-sm-12">
+                <div class="form-group">
 
                     <div class="col-sm-6">
                         <label class="control-label" for="firstName">First Name</label>
@@ -23,7 +23,7 @@
 
                 </div>
 
-                <div class="col-sm-12">
+                <div class="form-group">
 
                     <div class="col-sm-6">
                         <label class="control-label" for="phoneNumber">Phone Number</label>
@@ -41,7 +41,7 @@
 
                 </div>
 
-                <div class="col-sm-12">
+                <div class="form-group">
 
                     <div class="col-sm-6">
                         <label class="control-label" for="streetAddress">Street Address</label>
@@ -59,7 +59,7 @@
 
                 </div>
 
-                <div class="col-sm-12">
+                <div class="form-group">
 
                     <div class="col-sm-4">
                         <label class="control-label" for="city">City</label>
@@ -84,15 +84,32 @@
 
                 </div>
 
+                <div class="form-group">
+                    <div class="col-sm-6">
+                        <label class="control-label" for="property">Are you a property owner?</label>
+                        <p>If you are a property owner who rents properties and wishes to manage their property on this site then select the radio button and input your property name. <span>This can not be undone.</span></span></p>
+                        <div class="input-group">
+                          <span class="input-group-addon">
+                            <input type="radio" name="propertyYes" value="yes">
+                          </span>
+                            <input type="text" data-ng-model="user.property" id="property" class="form-control" placeholder="{{user.property}}">
+                        </div><!-- /input-group -->
+                    </div><!-- /.col-lg-6 -->
+                </div><!-- /.row -->
 
                 <div class="form-group">
-                    <label class="control-label" for="content">Content</label>
-                    <div class="controls">
-                        <textarea data-ng-model="user.content" id="content" class="form-control" cols="30" rows="10" placeholder="Content"></textarea>
+                    <div class="col-sm-12">
+                        <label class="control-label" for="content">Content</label>
+                        <div class="controls">
+                            <textarea data-ng-model="user.content" id="content" class="form-control" cols="30" rows="10" placeholder="Content"></textarea>
+                        </div>
                     </div>
                 </div>
+
                 <div class="form-group">
-                    <input type="submit" value="Update" class="btn btn-default">
+                    <div class="col-sm-12">
+                        <input type="submit" value="Update" class="btn btn-default">
+                    </div>
                 </div>
             </fieldset>
         </form>
