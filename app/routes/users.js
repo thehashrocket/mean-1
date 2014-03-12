@@ -18,6 +18,9 @@ module.exports = function(app) {
 	app.post('/auth/signin', users.signin);
 	app.get('/auth/signout', users.signout);
 
+    // Update the user info
+    app.put('/users/:userId', users.requiresLogin, users.hasAuthorization, users.update);
+
 	// Setting the facebook oauth routes
 	app.get('/auth/facebook', passport.authenticate('facebook', {
 		scope: ['email']
