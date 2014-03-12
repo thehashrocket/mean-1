@@ -223,6 +223,25 @@ exports.oauthCallback = function(strategy) {
 };
 
 /**
+ * Update a article
+ */
+exports.update = function(req, res) {
+    var user = req.user;
+
+    user = _.extend(user, req.body);
+
+    user.save(function(err) {
+        if (err) {
+            res.render('error', {
+                status: 500
+            });
+        } else {
+            res.jsonp(user);
+        }
+    });
+};
+
+/**
  * User middleware
  */
 exports.userByID = function(req, res, next, id) {
