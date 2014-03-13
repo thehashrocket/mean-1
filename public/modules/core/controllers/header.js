@@ -5,6 +5,15 @@ angular.module('core').controller('HeaderController', ['$scope', 'Authentication
 		$scope.authentication = Authentication;
 		$scope.isCollapsed = false;
 
+        $scope.findOne = function() {
+            Users.get({
+                userId: Authentication.user._id
+            }, function(user) {
+                $scope.user = user;
+                console.log('user: ' + user);
+            });
+        };
+
 		$scope.menu = [{
             title: 'Properties',
             link: 'properties',
