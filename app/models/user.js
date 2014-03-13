@@ -106,6 +106,11 @@ var UserSchema = new Schema({
 	updated: {
 		type: Date
 	},
+    propertyYes: {
+        type: Boolean,
+        default: '',
+        trim: true
+    },
 	created: {
 		type: Date,
 		default: Date.now
