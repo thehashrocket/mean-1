@@ -1,9 +1,18 @@
 'use strict';
 
-angular.module('mean.core').controller('HeaderController', ['$scope', 'Authentication',
-	function($scope, Authentication) {
+angular.module('mean.core').controller('HeaderController', ['$scope', 'Authentication', 'Users',
+	function($scope, Authentication, Users) {
 		$scope.authentication = Authentication;
 		$scope.isCollapsed = false;
+
+        $scope.findOne = function() {
+            Users.get({
+                userId: Authentication.user._id
+            }, function(user) {
+                $scope.user = user;
+                console.log('user: ' + user);
+            });
+        };
 
 		$scope.menu = [{
 			title: 'Articles',
