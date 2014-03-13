@@ -76,6 +76,11 @@ var UserSchema = new Schema({
 		type: String,
 		required: true
 	},
+    propertyYes: {
+        type: Boolean,
+        default: '',
+        trim: true
+    },
 	hashed_password: String,
 	salt: String,
 	providerData: {}
