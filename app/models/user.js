@@ -109,7 +109,13 @@ var UserSchema = new Schema({
 	created: {
 		type: Date,
 		default: Date.now
-	}
+	},
+    propertyYes: {
+    type: Boolean,
+    default: '',
+    trim: true
+    }
+
 });
 
 /**
