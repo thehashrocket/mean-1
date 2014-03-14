@@ -28,6 +28,7 @@ angular.module('mean.users').controller('UsersController', ['$scope', '$statePar
                 userId: $stateParams.userId
             }, function(user) {
                 $scope.user = user;
+                $scope.isBusiness = user.propertyYes;
             });
         };
     }
