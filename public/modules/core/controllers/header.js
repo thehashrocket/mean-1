@@ -10,7 +10,6 @@ angular.module('core').controller('HeaderController', ['$scope', 'Authentication
                 userId: Authentication.user._id
             }, function(user) {
                 $scope.user = user;
-                console.log('user: ' + user);
             });
         };
 

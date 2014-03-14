@@ -88,9 +88,9 @@
                         <p>If you are a property owner who rents properties and wishes to manage their property on this site then select the radio button and input your property name. <span>This can not be undone.</span></p>
                         <div class="input-group">
                           <span class="input-group-addon">
-                            <input data-ng-model="user.propertyYes" type="checkbox" name="propertyYes" value="yes">
+                            <input data-ng-disabled="!user.isBusiness" data-ng-model="user.propertyYes" type="checkbox" name="propertyYes" value="yes">
                           </span>
-                            <input data-ng-disabled="!user.propertyYes" type="text" data-ng-model="user.businessName" id="businessName" class="form-control" placeholder="{{user.businessName}}">
+                            <input type="text" data-ng-model="user.businessName" id="businessName" class="form-control" placeholder="{{user.businessName}}">
                         </div><!-- /input-group -->
                     </div><!-- /.col-lg-6 -->
                 </div><!-- /.row -->
