@@ -5,14 +5,6 @@ angular.module('mean.core').controller('HeaderController', ['$scope', 'Authentic
 		$scope.authentication = Authentication;
 		$scope.isCollapsed = false;
 
-        $scope.findOne = function() {
-            Users.get({
-                userId: Authentication.user._id
-            }, function(user) {
-                $scope.user = user;
-            });
-        };
-
 		$scope.menu = [{
 			title: 'Articles',
 			link: 'articles',
