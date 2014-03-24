@@ -1,10 +1,11 @@
 'use strict';
 
 //Properties service used for articles REST endpoint
-angular.module('mean.properties')
+angular.module('properties')
     .factory('Properties', ['$resource', function($resource) {
     return $resource('properties/:propertyId', {
         propertyId: '@_id'
+
     }, {
         update: {
             method: 'PUT'

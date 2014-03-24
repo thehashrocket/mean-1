@@ -35,8 +35,8 @@
                     <li data-ng-controller="PropertiesController" data-ng-init="findPropertyByUser()" data-ng-show="hasProperty">
                         <a href="#!/users/properties">Manage Properties</a>
                     </li>
-                    <li data-ng-init="findOne()" data-ng-show="user.propertyYes">
-                        <a href="#!/property/{{authentication.user._id}}">Property Editor</a>
+                    <li data-ng-show="authentication.user.propertyYes">
+                        <a href="#!/user/property">Manage Properties</a>
                     </li>
 					<li>
 						<a href="/#!/settings/profile">Edit Profile</a>
