@@ -6,14 +6,27 @@
 var mongoose = require('mongoose'),
 	passport = require('passport'),
 	User = mongoose.model('User'),
-    _ = require('lodash');
+	_ = require('lodash');
 
+var getErrorMessage = function(err) {
+	var message = '';
 
-/**
- * Show the current profile
- */
-exports.read = function(req, res) {
-    res.jsonp(req.user);
+	if (err.code) {
+		switch (err.code) {
+			case 11000:
+			case 11001:
+				message = 'Username already exists';
+				break;
+			default:
+				message = 'Something went wrong';
+		}
+	} else {
+		for (var errName in err.errors) {
+			if (err.errors[errName].message) message = err.errors[errName].message;
+		}
+	}
+
+	return message;
 };
 
 /**
@@ -30,26 +43,22 @@ exports.signup = function(req, res) {
 
 	user.save(function(err) {
 		if (err) {
-			switch (err.code) {
-				case 11000:
-				case 11001:
-					message = 'Email or username already exists';
-					break;
-				default:
-					message = 'Please fill all the required fields';
-			}
-
 			return res.send(400, {
-				message: message
+				message: getErrorMessage(err)
+			});
+		} else {
+			// Remove sensitive data before login
+			user.password = undefined;
+			user.salt = undefined;
+
+			req.login(user, function(err) {
+				if (err) {
+					res.send(400, err);
+				} else {
+					res.jsonp(user);
+				}
 			});
 		}
-		req.logIn(user, function(err) {
-			if (err) {
-				res.send(400, err);
-			} else {
-				res.jsonp(user);
-			}
-		});
 	});
 };
 
@@ -61,7 +70,11 @@ exports.signin = function(req, res, next) {
 		if (err || !user) {
 			res.send(400, info);
 		} else {
-			req.logIn(user, function(err) {
+			// Remove sensitive data before login
+			user.password = undefined;
+			user.salt = undefined;
+
+			req.login(user, function(err) {
 				if (err) {
 					res.send(400, err);
 				} else {
@@ -70,6 +83,98 @@ exports.signin = function(req, res, next) {
 			});
 		}
 	})(req, res, next);
+};
+
+/**
+ * Update user details
+ */
+exports.update = function(req, res) {
+	// Init Variables
+	var user = req.user;
+	var message = null;
+
+	if (user) {
+		// Merge existing user
+		user = _.extend(user, req.body);
+		user.updated = Date.now();
+		user.displayName = user.firstName + ' ' + user.lastName;
+		
+		user.save(function(err) {
+			if (err) {
+				return res.send(400, {
+					message: getErrorMessage(err)
+				});
+			} else {
+				req.login(user, function(err) {
+					if (err) {
+						res.send(400, err);
+					} else {
+						res.jsonp(user);
+					}
+				});
+			}
+		});
+	} else {
+		res.send(400, {
+			message: 'User is not signed in'
+		});
+	}
+};
+
+/**
+ * Change Password
+ */
+exports.changePassword = function(req, res, next) {
+	// Init Variables
+	var passwordDetails = req.body;
+	var message = null;
+
+	if (req.user) {
+		User.findById(req.user.id, function(err, user) {
+			if (!err && user) {
+				if (user.authenticate(passwordDetails.currentPassword)) {
+					if (passwordDetails.newPassword === passwordDetails.verifyPassword) {
+						user.password = passwordDetails.newPassword;
+
+						user.save(function(err) {
+							if (err) {
+								return res.send(400, {
+									message: getErrorMessage(err)
+								});
+							} else {
+								req.login(user, function(err) {
+									if (err) {
+										res.send(400, err);
+									} else {
+										res.send({
+											message: 'Password changed successfully'
+										});
+									}
+								});
+							}
+						});
+
+					} else {
+						res.send(400, {
+							message: 'Passwords do not match'
+						});
+					}
+				} else {
+					res.send(400, {
+						message: 'Current password is incorrect'
+					});
+				}
+			} else {
+				res.send(400, {
+					message: 'User is not found'
+				});
+			}
+		});
+	} else {
+		res.send(400, {
+			message: 'User is not signed in'
+		});
+	}
 };
 
 /**
@@ -88,10 +193,24 @@ exports.me = function(req, res) {
 };
 
 /**
- * Auth callback
+ * OAuth callback
  */
-exports.authCallback = function(req, res) {
-	res.redirect('/');
+exports.oauthCallback = function(strategy) {
+	return function(req, res, next) {
+		passport.authenticate(strategy, function(err, user, email) {
+			if (err || !user) {
+				console.log(err);
+				return res.redirect('/#!/signin');
+			}
+			req.login(user, function(err) {
+				if (err) {
+					return res.redirect('/#!/signin');
+				}
+
+				return res.redirect('/');
+			});
+		})(req, res, next);
+	};
 };
 
 /**
@@ -134,6 +253,7 @@ exports.requiresLogin = function(req, res, next) {
 	if (!req.isAuthenticated()) {
 		return res.send(401, 'User is not logged in');
 	}
+
 	next();
 };
 
@@ -144,5 +264,6 @@ exports.hasAuthorization = function(req, res, next) {
 	if (req.profile.id !== req.user.id) {
 		return res.send(403, 'User is not authorized');
 	}
+
 	next();
 };
