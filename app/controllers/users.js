@@ -32,13 +32,25 @@ var getErrorMessage = function(err) {
 	return message;
 };
 
+var getErrorMessage = function(err) {
+	var message = '';
 
+	if (err.code) {
+		switch (err.code) {
+			case 11000:
+			case 11001:
+				message = 'Username already exists';
+				break;
+			default:
+				message = 'Something went wrong';
+		}
+	} else {
+		for (var errName in err.errors) {
+			if (err.errors[errName].message) message = err.errors[errName].message;
+		}
+	}
 
-/**
- * Show the current profile
- */
-exports.read = function(req, res) {
-    res.jsonp(req.user);
+	return message;
 };
 
 /**
@@ -110,7 +122,6 @@ exports.update = function(req, res) {
 		user = _.extend(user, req.body);
 		user.updated = Date.now();
 		user.displayName = user.firstName + ' ' + user.lastName;
-
 		user.save(function(err) {
 			if (err) {
 				return res.send(400, {
@@ -216,7 +227,6 @@ exports.oauthCallback = function(strategy) {
 				if (err) {
 					return res.redirect('/#!/signin');
 				}
-
 				return res.redirect(redirectURL || '/');
 			});
 		})(req, res, next);
