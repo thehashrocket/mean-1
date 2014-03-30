@@ -151,7 +151,6 @@ exports.changePassword = function(req, res, next) {
 	// Init Variables
 	var passwordDetails = req.body;
 	var message = null;
-
 	if (passwordDetails.currentPassword) {
 		if (req.user) {
 			User.findById(req.user.id, function(err, user) {
@@ -176,25 +175,26 @@ exports.changePassword = function(req, res, next) {
 								});
 							}
 						});
+
 					} else {
 						res.send(400, {
-							message: 'Current password is incorrect'
+							message: 'Passwords do not match'
 						});
 					}
 				} else {
 					res.send(400, {
-						message: 'User is not found'
+						message: 'Current password is incorrect'
 					});
 				}
-			});
-		} else {
-			res.send(400, {
-				message: 'User is not signed in'
-			});
-		}
+			} else {
+				res.send(400, {
+					message: 'User is not found'
+				});
+			}
+		});
 	} else {
 		res.send(400, {
-			message: 'Please fill current password'
+			message: 'User is not signed in'
 		});
 	}
 };
