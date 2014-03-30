@@ -152,13 +152,13 @@ exports.changePassword = function(req, res, next) {
 	var passwordDetails = req.body;
 	var message = null;
 
-	if (req.user) {
-		User.findById(req.user.id, function(err, user) {
-			if (!err && user) {
-				if (user.authenticate(passwordDetails.currentPassword)) {
-					if (passwordDetails.newPassword === passwordDetails.verifyPassword) {
-						user.password = passwordDetails.newPassword;
-
+	if (passwordDetails.currentPassword) {
+		if (req.user) {
+			User.findById(req.user.id, function(err, user) {
+				if (!err && user) {
+					if (user.authenticate(passwordDetails.currentPassword)) {
+						if (passwordDetails.newPassword === passwordDetails.verifyPassword) {
+							user.password = passwordDetails.newPassword;
 						user.save(function(err) {
 							if (err) {
 								return res.send(400, {
@@ -178,23 +178,23 @@ exports.changePassword = function(req, res, next) {
 						});
 					} else {
 						res.send(400, {
-							message: 'Passwords do not match'
+							message: 'Current password is incorrect'
 						});
 					}
 				} else {
 					res.send(400, {
-						message: 'Current password is incorrect'
+						message: 'User is not found'
 					});
 				}
-			} else {
-				res.send(400, {
-					message: 'User is not found'
-				});
-			}
-		});
+			});
+		} else {
+			res.send(400, {
+				message: 'User is not signed in'
+			});
+		}
 	} else {
 		res.send(400, {
-			message: 'User is not signed in'
+			message: 'Please fill current password'
 		});
 	}
 };
