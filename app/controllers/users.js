@@ -214,7 +214,6 @@ exports.oauthCallback = function(strategy) {
                 if (err) {
                     return res.redirect('/#!/signin');
                 }
-
                 return res.redirect(redirectURL || '/');
             });
         })(req, res, next);
