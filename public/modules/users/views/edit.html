@@ -1,7 +1,21 @@
 <section data-ng-controller="UsersController" data-ng-init="findOne()">
     <div class="page-header">
-        <h1>Edit Article</h1>
+        <h1>Edit Profiles</h1>
     </div>
+
+    <tabset>
+        <tab heading="Static title">Static content</tab>
+        <tab ng-repeat="tab in tabs" heading="{{tab.title}}" active="tab.active" disabled="tab.disabled">
+            {{tab.content}}
+        </tab>
+        <tab select="alertMe()">
+            <tab-heading>
+                <i class="glyphicon glyphicon-bell"></i> Alert!
+            </tab-heading>
+            I've got an HTML heading, and a select callback. Pretty cool!
+        </tab>
+    </tabset>
+
     <div class="col-sm-12">
         <form class="form-horizontal" data-ng-submit="update()">
             <fieldset>
