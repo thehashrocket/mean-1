@@ -33,6 +33,13 @@ var getErrorMessage = function(err) {
 };
 
 /**
+ * Show the current profile
+ */
+exports.read = function(req, res) {
+    res.jsonp(req.user);
+};
+
+/**
  * Signup
  */
 exports.signup = function(req, res) {
