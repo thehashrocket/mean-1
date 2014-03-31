@@ -30,5 +30,7 @@ angular.module('mean.users').controller('SettingsController', ['$scope', '$http'
                 $scope.error = response.message;
             });
 		};
+
+
 	}
 ]);
