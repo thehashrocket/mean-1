@@ -29,12 +29,6 @@
                     <div data-ng-init="userTickets()" id="noti_Container"><span class="noti_bubble">{{hasTickets()}}</span></div>{{authentication.user.displayName}} <b class="caret"></b>
                 </a>
 				<ul class="dropdown-menu">
-                    <li>
-                        <a href="/#!/users/properties/create">Create Property</a>
-                    </li>
-                    <li data-ng-controller="PropertiesController" data-ng-init="findPropertyByUser()" data-ng-show="hasProperty">
-                        <a href="#!/users/properties">Manage Properties</a>
-                    </li>
                     <li data-ng-show="authentication.user.propertyYes">
                         <a href="#!/user/property">Manage Properties</a>
                     </li>
