@@ -14,7 +14,7 @@ angular.module('mean.users').controller('UsersController', ['$scope', '$statePar
 
         $scope.alertMe = function() {
             setTimeout(function() {
-                alert("You've selected the alert tab!");
+                alert('Youve selected the alert tab!');
             });
         };
 
