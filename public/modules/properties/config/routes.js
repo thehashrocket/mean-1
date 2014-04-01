@@ -6,11 +6,11 @@ angular.module('mean.properties').config(['$stateProvider',
 		// Properties state routing
 		$stateProvider.
 		state('listProperties', {
-			url: '/properties',
+			url: '/property',
 			templateUrl: 'modules/properties/views/list.html'
 		}).
 		state('viewProperty', {
-			url: '/properties/:propertyId',
+			url: '/property/:propertyId',
 			templateUrl: 'modules/properties/views/view.html'
 		});
 	}
