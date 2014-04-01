@@ -6,6 +6,7 @@
 var mongoose = require('mongoose'),
 	passport = require('passport'),
 	User = mongoose.model('User'),
+    Property = mongoose.model('Property'),
 	_ = require('lodash');
 
 /**
