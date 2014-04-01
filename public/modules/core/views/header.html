@@ -29,8 +29,11 @@
                     {{authentication.user.displayName}} <b class="caret"></b>
                 </a>
 				<ul class="dropdown-menu">
+                    <li>
+                        <a href="/#!/property/create">Create Property</a>
+                    </li>
                     <li data-ng-show="authentication.user.propertyYes">
-                        <a href="#!/user/property">Manage Properties</a>
+                        <a href="#!/property">Manage Properties</a>
                     </li>
 					<li>
 						<a href="/#!/settings/profile">Edit Profile</a>
