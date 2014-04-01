@@ -85,7 +85,6 @@ exports.list = function(req, res) {
 };
 
 /**
-<<<<<<< HEAD
  * Property middleware
  */
 exports.propertyByID = function(req, res, next, userID) {
