@@ -5,6 +5,7 @@
  */
 exports.index = function(req, res) {
 	res.render('index.html', {
-		user: req.user || null
+		user: req.user || null,
+        property: req.property || null
 	});
 };
