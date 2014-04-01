@@ -88,7 +88,7 @@ exports.list = function(req, res) {
  * Article middleware
  */
 exports.propertyByID = function(req, res, next, id) {
-    Property.load(id, function(err, article) {
+    Property.load(id, function(err, property) {
         if (err) return next(err);
         if (!property) return next(new Error('Failed to load property ' + id));
         req.property = property;
