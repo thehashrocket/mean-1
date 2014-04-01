@@ -41,12 +41,12 @@ angular.module('mean.properties').controller('PropertiesController', ['$scope', 
             property.updated.push(new Date().getTime());
 
             property.$update(function() {
-                $location.path('articles/' + article._id);
+                $location.path('properties/' + property._id);
             });
         };
 
         $scope.find = function() {
-            Property.query(function(properties) {
+            Properties.query(function(properties) {
                 $scope.properties = properties;
             });
         };
