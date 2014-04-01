@@ -6,6 +6,7 @@
 var mongoose = require('mongoose'),
 	Schema = mongoose.Schema;
 
+<<<<<<< HEAD
 
 /**
  * Tickets Schema
@@ -28,6 +29,8 @@ var Tickets = new Schema({
     }
 });
 
+=======
+>>>>>>> adding in support for properties
 /**
  * Property Schema
  */
@@ -36,16 +39,20 @@ var PropertySchema = new Schema({
 		type: Date,
 		default: Date.now
 	},
+<<<<<<< HEAD
     userID: {
         type: String,
         default: '',
         trim: true
     },
+=======
+>>>>>>> adding in support for properties
     businessName: {
         type: String,
         default: '',
         trim: true
     },
+<<<<<<< HEAD
     streetAddress: {
         type: String,
         default: '',
@@ -72,6 +79,8 @@ var PropertySchema = new Schema({
         trim: true
     },
     tickets: [Tickets],
+=======
+>>>>>>> adding in support for properties
 	content: {
 		type: String,
 		default: '',
@@ -87,6 +96,10 @@ var PropertySchema = new Schema({
  * Validations
  */
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> adding in support for properties
 /**
  * Statics
  */
