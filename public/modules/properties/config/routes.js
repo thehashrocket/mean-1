@@ -6,19 +6,19 @@ angular.module('mean.properties').config(['$stateProvider',
 		// Articles state routing
 		$stateProvider.
 		state('listProperties', {
-			url: '/properties',
+			url: '/property',
 			templateUrl: 'modules/properties/views/list.html'
 		}).
 		state('createProperty', {
-			url: '/properties/create',
+			url: '/property/create',
 			templateUrl: 'modules/properties/views/create.html'
 		}).
 		state('viewProperty', {
-			url: '/properties/:propertyId',
+			url: '/property/:propertyId',
 			templateUrl: 'modules/properties/views/view.html'
 		}).
 		state('editProperty', {
-			url: '/properties/:propertyId/edit',
+			url: '/property/:propertyId/edit',
 			templateUrl: 'modules/properties/views/edit.html'
 		});
 	}
