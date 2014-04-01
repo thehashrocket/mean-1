@@ -53,7 +53,7 @@ angular.module('mean.properties').controller('PropertiesController', ['$scope', 
 
         $scope.findOne = function() {
             Properties.get({
-                articleId: $stateParams.propertyId
+                propertyId: $stateParams.propertyId
             }, function(property) {
                 $scope.property = property;
             });
