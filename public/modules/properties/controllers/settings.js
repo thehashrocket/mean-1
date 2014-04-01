@@ -1,18 +1,15 @@
 'use strict';
 
-angular.module('mean.users').controller('SettingsController', ['$scope', '$http', '$location', 'Users', 'Authentication',
+angular.module('mean.properties').controller('SettingsController', ['$scope', '$http', '$location', 'Users', 'Authentication',
 	function($scope, $http, $location, Users, Authentication) {
 		$scope.user = Authentication.user;
-        $scope.isBusiness = user.propertyYes;
 
 		//If user is not signed in then redirect back home
         if (!$scope.user) $location.path('/');
 
-		$scope.updateUserProfile = function() {
+		$scope.updateProperty = function() {
 			$scope.success = $scope.error = null;
-			var user = new Users(
-                $scope.user
-            );
+			var user = new Users($scope.user);
 
 			user.$update(function(response) {
 				$scope.success = true;
