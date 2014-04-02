@@ -35,8 +35,9 @@
                     <li>
                         <a href="#!/properties">Manage Properties TEMP</a>
                     </li>
+					<p>{{findProperty}}</p>
                     <section data-ng-controller="PropertiesController" data-ng-init="findPropertyByUser()">
-	                    {{authentication.user._id}}
+	                    <p>{{findPropertyByUser}}</p>
                         <li data-ng-show="hasProperty">
                             <a href="#!/properties">Manage Properties</a>
                         </li>
