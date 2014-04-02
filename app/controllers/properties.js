@@ -104,6 +104,7 @@ exports.propertyByUserID = function (req, res, next, userID) {
 			req.property = property;
 			next();
 		}
+
 	});
 };
 
