@@ -78,7 +78,6 @@ angular.module('mean.properties').controller('PropertiesController', ['$scope', 
                 $scope.properties = properties;
             });
         };
-
         $scope.findPropertyByUser = function() {
 			PropertiesByUser.get({userID: Authentication.user._id},
 			function(OwnerProperty) {
