@@ -36,5 +36,3 @@ angular.module('properties')
             }
         });
     }]);
-
-
