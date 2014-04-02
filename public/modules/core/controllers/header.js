@@ -1,7 +1,12 @@
 'use strict';
 
+<<<<<<< HEAD
 angular.module('core').controller('HeaderController', ['$scope', 'Authentication','Properties', 'UserProperties',
 	function($scope, Authentication, Properties, UserProperties) {
+=======
+angular.module('core').controller('HeaderController', ['$scope', 'Authentication','Properties',
+	function($scope, Authentication, Properties) {
+>>>>>>> trying to load property by USERID
 		$scope.authentication = Authentication;
 		$scope.isCollapsed = false;
 
@@ -10,6 +15,14 @@ angular.module('core').controller('HeaderController', ['$scope', 'Authentication
             link: 'properties',
             uiRoute: '/properties'
         }];
+
+        $scope.findPropertyByUser = function() {
+            Properties.get({
+                userID: Authentication.user._id
+            }, function(property) {
+                $scope.hasProperty = property;
+            });
+        };
 
 		$scope.toggleCollapsibleMenu = function() {
 			$scope.isCollapsed = !$scope.isCollapsed;
