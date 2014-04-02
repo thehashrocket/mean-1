@@ -6,14 +6,14 @@ angular.module('mean.properties').controller('PropertiesController', ['$scope', 
 
         $scope.create = function() {
             var property = new Properties({
-                title: this.title,
+                businessName: this.businessName,
                 content: this.content
             });
             property.$save(function(response) {
                 $location.path('properties/' + response._id);
             });
 
-            this.title = '';
+            this.businessName = '';
             this.content = '';
         };
 
@@ -50,6 +50,14 @@ angular.module('mean.properties').controller('PropertiesController', ['$scope', 
                 $scope.properties = properties;
             });
         };
+
+        $scope.findByUser = function() {
+            Properties.get({
+                userId: Authentication.user._id
+            }, function(property) {
+            $scope.hasProperty = property;
+        })
+        }
 
         $scope.findOne = function() {
             Properties.get({
