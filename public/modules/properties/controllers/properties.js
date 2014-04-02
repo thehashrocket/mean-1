@@ -1,13 +1,14 @@
 'use strict';
 
-angular.module('mean.properties').controller('PropertiesController', ['$scope', '$stateParams', '$location', 'Authentication', 'Properties',
-    function($scope, $stateParams, $location, Authentication, Properties) {
+angular.module('mean.properties').controller('PropertiesController', ['$scope', '$stateParams', '$location', 'Authentication', 'Properties','PropertiesByUser',
+    function($scope, $stateParams, $location, Authentication, Properties, PropertiesByUser) {
         $scope.authentication = Authentication;
 
         $scope.create = function() {
             var property = new Properties({
                 businessName: this.businessName,
-                content: this.content
+                content: this.content,
+                userID: Authentication.user._id
             });
             property.$save(function(response) {
                 $location.path('properties/' + response._id);
@@ -15,6 +16,7 @@ angular.module('mean.properties').controller('PropertiesController', ['$scope', 
 
             this.businessName = '';
             this.content = '';
+            this.userID = '';
         };
 
         $scope.remove = function(property) {
@@ -51,13 +53,13 @@ angular.module('mean.properties').controller('PropertiesController', ['$scope', 
             });
         };
 
-        $scope.findByUser = function() {
-            Properties.get({
-                userId: Authentication.user._id
+        $scope.findPropertyByUser = function() {
+            PropertiesByUser.get({
+                userID: Authentication.user._id
             }, function(property) {
-            $scope.hasProperty = property;
-        })
-        }
+                $scope.hasProperty = property;
+            });
+        };
 
         $scope.findOne = function() {
             Properties.get({

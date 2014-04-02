@@ -14,6 +14,11 @@ var PropertySchema = new Schema({
 		type: Date,
 		default: Date.now
 	},
+    userID: {
+        type: String,
+        default: '',
+        trim: true
+    },
     businessName: {
         type: String,
         default: '',
@@ -33,7 +38,6 @@ var PropertySchema = new Schema({
 /**
  * Validations
  */
-
 
 /**
  * Statics

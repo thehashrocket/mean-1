@@ -32,9 +32,14 @@
                     <li>
                         <a href="/#!/properties/create">Create Property</a>
                     </li>
-                    <li data-ng-show="authentication.user.propertyYes">
-                        <a href="#!/properties">Manage Properties</a>
+                    <li>
+                        <a href="#!/properties">Manage Properties TEMP</a>
                     </li>
+                    <section data-ng-controller="PropertiesController" data-ng-init="findPropertyByUser()">
+                        <li data-ng-show="hasProperty">
+                            <a href="#!/properties">Manage Properties</a>
+                        </li>
+                    </section>
 					<li>
 						<a href="/#!/settings/profile">Edit Profile</a>
 					</li>
