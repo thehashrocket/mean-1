@@ -1,23 +1,26 @@
-<section class="row" data-ng-controller="SettingsController">
-	<h3 class="col-md-12 text-center">Edit your Property</h3>
-
-	<div class="col-sm-12">
-		<form data-ng-submit="updateProperty()" class="signin form-horizontal" autocomplete="off">
-			<fieldset>
-
-
-				<div class="form-group">
-					<div class="col-sm-12">
-						<input type="submit" value="Update" class="btn btn-default">
-					</div>
-				</div>
-				<div data-ng-show="success" class="text-center text-success">
-					<strong>Profile Saved Successfully</strong>
-				</div>
-				<div data-ng-show="error" class="text-center text-danger">
-					<strong>{{error}}</strong>
-				</div>
-			</fieldset>
-		</form>
-	</div>
+<section data-ng-controller="PropertiesController" data-ng-init="findOne()">
+    <div class="page-header">
+        <h1>Edit Article</h1>
+    </div>
+    <div class="col-md-12">
+        <form class="form-horizontal" data-ng-submit="update()">
+            <fieldset>
+                <div class="form-group">
+                    <label class="control-label" for="businessName">Title</label>
+                    <div class="controls">
+                        <input type="text" data-ng-model="property.businessName" id="businessName" class="form-control" placeholder="Business Name" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="content">Content</label>
+                    <div class="controls">
+                        <textarea data-ng-model="property.content" id="content" class="form-control" cols="30" rows="10" placeholder="Content"></textarea>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Update" class="btn btn-default">
+                </div>
+            </fieldset>
+        </form>
+    </div>
 </section>
