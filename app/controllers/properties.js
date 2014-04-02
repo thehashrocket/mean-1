@@ -87,7 +87,16 @@ exports.list = function(req, res) {
 /**
  * Article middleware
  */
-exports.propertyByID = function(req, res, next, id) {
+exports.propertyByID = function(req, res, next, userID) {
+    Property.load(userID, function(err, property) {
+        if (err) return next(err);
+        if (!property) return next(new Error('Failed to load property ' + userID));
+        req.property = property;
+        next();
+    });
+};
+
+exports.propertyByUserID = function(req, res, next, id) {
     Property.load(id, function(err, property) {
         if (err) return next(err);
         if (!property) return next(new Error('Failed to load property ' + id));
