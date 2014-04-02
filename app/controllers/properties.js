@@ -96,25 +96,14 @@ exports.propertyByID = function(req, res, next, userID) {
     });
 };
 
-//exports.propertyByUserID = function(req, res, next, userID) {
-//    Property.load(userID, function(err, property) {
-//        if (err) return next(err);
-//        if (!property) return next(new Error('Failed to load property ' + userID));
-//        req.property = property;
-//        next();
-//    });
-//};
-
 exports.propertyByUserID = function (req, res, next, userID) {
-	Property.findOne({ 'userID': userID }, function (err, property) {
+	Property.findOne({ 'userID': userID }, 'businessName userID ', function (err, property) {
 		if (err) {
-			console.log(property.businessName); // Space Ghost is a talk show host.
 			return err;
 		} else {
 			req.property = property;
-
+			next();
 		}
-
 	});
 };
 

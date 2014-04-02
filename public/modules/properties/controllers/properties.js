@@ -54,11 +54,10 @@ angular.module('mean.properties').controller('PropertiesController', ['$scope', 
         };
 
         $scope.findPropertyByUser = function() {
-            PropertiesByUser.get({
-                userID: Authentication.user._id
-            }, function(property) {
-                $scope.hasProperty = property;
-            });
+			PropertiesByUser.get({userID: Authentication.user._id},
+			function(OwnerProperty) {
+				$scope.hasProperty = OwnerProperty;
+			});
         };
 
         $scope.findOne = function() {
