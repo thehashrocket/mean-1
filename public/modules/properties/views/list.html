@@ -1,7 +1,6 @@
 <section data-ng-controller="PropertiesController" data-ng-init="find()">
     <div class="page-header">
         <h1>Properties</h1>
-
     </div>
     <div class="list-group">
         <a data-ng-repeat="property in properties" data-ng-href="#!/properties/{{property._id}}" class="list-group-item">
@@ -14,6 +13,3 @@
     	No articles yet, why don't you <a href="/#!/properties/create">create one</a>?
     </div>
 </section>
-		<section data-ng-controller="PropertiesController" data-ng-init="findPropertyByUser()">
-			<p>{{hasProperty}}</p>
-		</section>
