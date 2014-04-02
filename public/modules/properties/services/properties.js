@@ -12,7 +12,6 @@ angular.module('mean.properties')
     });
 }]).factory('PropertiesByUser', ['$resource',
 	function($resource){
-		console.log('hello');
 		return $resource('properties/user/:userID',{}, {
 			query: {method:'GET', params:{userID:'userID'}, isArray:true}
 		});
