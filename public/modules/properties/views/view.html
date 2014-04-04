@@ -2,6 +2,52 @@
 	<div class="page-header">
 		<h1>{{property.businessName}}</h1>
 	</div>
+    <div class="row">
+        <div class="col-md-3">
+            <label>Address</label><br/>
+            <p>{{property.streetAddress}}</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            <label>City</label><br/>
+            <p>{{property.city}}</p>
+        </div>
+        <div class="col-md-3">
+            <label>State</label><br/>
+            <p>{{property.state}}</p>
+        </div>
+        <div class="col-md-3">
+            <label>Zip</label><br/>
+            <p>{{property.zip}}</p>
+        </div>
+    </div>
+    <div class="row">
+        <p>{{property}}</p>
+    </div>
+    <div class="row">
+        <form class="form-horizontal" data-ng-submit="update()">
+            <fieldset>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label class="control-label" for="name">Name</label>
+                        <input type="text" data-ng-model="ticket.name" id="name" class="form-control" placeholder="Name">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label class="control-label" for="description">Description</label>
+                        <input type="text" data-ng-model="ticket.description" id="description" class="form-control" placeholder="Description">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <input type="submit" value="Update" class="btn btn-default">
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+    </div>
 	<div class="pull-right" data-ng-show="authentication.user._id == property.user._id">
 		<a class="btn btn-primary" href="/#!/properties/{{property._id}}/edit">
 			<i class="glyphicon glyphicon-edit"></i>
@@ -10,9 +56,7 @@
 			<i class="glyphicon glyphicon-trash"></i>
 		</a>
 	</div>
-	<small>
-		<em class="text-muted">Posted on {{property.created | date:'mediumDate'}} by {{property.user.displayName}}</em>
-	</small>
+
 	<p class="lead">
 		{{property.content}}
 	</p>

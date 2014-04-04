@@ -8,7 +8,7 @@ var mongoose = require('mongoose'),
     _ = require('lodash');
 
 /**
- * Create a article
+ * Create a property
  */
 exports.create = function(req, res) {
     var property = new Property(req.body);
@@ -27,14 +27,14 @@ exports.create = function(req, res) {
 };
 
 /**
- * Show the current article
+ * Show the current property
  */
 exports.read = function(req, res) {
     res.jsonp(req.property);
 };
 
 /**
- * Update a article
+ * Update a property
  */
 exports.update = function(req, res) {
     var property = req.property;
@@ -53,7 +53,7 @@ exports.update = function(req, res) {
 };
 
 /**
- * Delete an article
+ * Delete an property
  */
 exports.delete = function(req, res) {
     var property = req.property;
@@ -70,7 +70,7 @@ exports.delete = function(req, res) {
 };
 
 /**
- * List of Articles
+ * List of Properties
  */
 exports.list = function(req, res) {
     Property.find().sort('-created').populate('user', 'displayName').exec(function(err, properties) {
@@ -85,7 +85,7 @@ exports.list = function(req, res) {
 };
 
 /**
- * Article middleware
+ * Property middleware
  */
 exports.propertyByID = function(req, res, next, userID) {
     Property.load(userID, function(err, property) {
@@ -108,7 +108,7 @@ exports.propertyByUserID = function (req, res, next, userID) {
 };
 
 /**
- * Article authorization middleware
+ * Property authorization middleware
  */
 exports.hasAuthorization = function(req, res, next) {
     if (req.property.user.id !== req.user.id) {

@@ -6,14 +6,10 @@ angular.module('core').controller('HeaderController', ['$scope', 'Authentication
 		$scope.isCollapsed = false;
 
 		$scope.menu = [{
-			title: 'Articles',
-			link: 'articles',
-			uiRoute: '/articles'
-		}, {
-			title: 'New Article',
-			link: 'articles/create',
-			uiRoute: '/articles/create'
-		}];
+            title: 'Properties',
+            link: 'properties',
+            uiRoute: '/properties'
+        }];
 
         $scope.findPropertyByUser = function() {
             Properties.get({
