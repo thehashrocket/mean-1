@@ -6,6 +6,28 @@
 var mongoose = require('mongoose'),
 	Schema = mongoose.Schema;
 
+
+/**
+ * Tickets Schema
+ */
+
+var Tickets = new Schema({
+    ticketName: {
+        type: String,
+        default: '',
+        trim: true
+    },
+    ticketDescription: {
+        type: String,
+        default: '',
+        trim: true
+    },
+    ticketDate: {
+        type: Date,
+        default: Date.now
+    }
+});
+
 /**
  * Tickets Schema
  */
