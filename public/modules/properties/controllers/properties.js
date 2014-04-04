@@ -5,7 +5,6 @@ angular.module('mean.properties').controller('PropertiesController', ['$scope', 
         $scope.authentication = Authentication;
 
         $scope.addTicket = function(property,ticket) {
-
             property = $scope.property;
             if (!property.updated) {
                 property.updated = [];
