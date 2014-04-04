@@ -26,18 +26,18 @@
         <p>{{property}}</p>
     </div>
     <div class="row">
-        <form class="form-horizontal" data-ng-submit="update()">
+        <form class="form-horizontal" data-ng-submit="addTicket(property,ticket)">
             <fieldset>
                 <div class="col-md-4">
                     <div class="form-group">
                         <label class="control-label" for="name">Name</label>
-                        <input type="text" data-ng-model="ticket.name" id="name" class="form-control" placeholder="Name">
+                        <input type="text" data-ng-model="ticket.ticketName" id="name" class="form-control" placeholder="Name">
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="form-group">
                         <label class="control-label" for="description">Description</label>
-                        <input type="text" data-ng-model="ticket.description" id="description" class="form-control" placeholder="Description">
+                        <input type="text" data-ng-model="ticket.ticketDescription" id="description" class="form-control" placeholder="Description">
                     </div>
                 </div>
                 <div class="col-md-4">

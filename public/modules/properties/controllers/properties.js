@@ -4,6 +4,19 @@ angular.module('mean.properties').controller('PropertiesController', ['$scope', 
     function($scope, $stateParams, $location, Authentication, Properties, PropertiesByUser) {
         $scope.authentication = Authentication;
 
+        $scope.addTicket = function(property,ticket) {
+            var property = $scope.property;
+            if (!property.updated) {
+                property.updated = [];
+            }
+            property.tickets.push(ticket);
+            property.updated.push(new Date().getTime());
+
+            property.$update(function() {
+                $location.path('properties/' + property._id);
+            });
+        };
+
         $scope.create = function() {
             var property = new Properties({
                 businessName: this.businessName,
