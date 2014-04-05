@@ -10,6 +10,7 @@ module.exports = function(app) {
     app.get('/properties/user/:userID', properties.read);
 	app.get('/properties/:propertyId', properties.read);
 	app.put('/properties/:propertyId', users.requiresLogin, properties.hasAuthorization, properties.update);
+    app.put('/properties/tickets/:propertyId', users.requiresLogin, properties.update);
 	app.del('/properties/:propertyId', users.requiresLogin, properties.hasAuthorization, properties.delete);
 
 	// Finish by binding the article middleware

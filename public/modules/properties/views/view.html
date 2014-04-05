@@ -23,7 +23,23 @@
         </div>
     </div>
     <div class="row">
-        <p>{{property}}</p>
+        <ul>
+            <li data-ng-repeat="ticket in property.tickets">
+                <div class="pull-right" data-ng-show="authentication.user._id == property.user._id">
+                    <a class="btn btn-primary" href="/#!/properties/{{property._id}}/edit">
+                        <i class="glyphicon glyphicon-edit"></i>
+                    </a>
+                    <a class="btn btn-primary" data-ng-click="remove();">
+                        <i class="glyphicon glyphicon-trash"></i>
+                    </a>
+                    </div>
+
+                <div class="">
+                    {{ticket.ticketName}}
+                    <p>{{ticket.ticketDescription}}</p>
+                </div>
+            </li>
+        </ul>
     </div>
     <div class="row">
         <form class="form-horizontal" data-ng-submit="addTicket(property,ticket)">
@@ -31,13 +47,13 @@
                 <div class="col-md-4">
                     <div class="form-group">
                         <label class="control-label" for="name">Name</label>
-                        <input type="text" data-ng-model="ticket.ticketName" id="name" class="form-control" placeholder="Name">
+                        <input type="text" data-ng-model="ticket.name" id="name" class="form-control" placeholder="Name">
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="form-group">
                         <label class="control-label" for="description">Description</label>
-                        <input type="text" data-ng-model="ticket.ticketDescription" id="description" class="form-control" placeholder="Description">
+                        <input type="text" data-ng-model="ticket.description" id="description" class="form-control" placeholder="Description">
                     </div>
                 </div>
                 <div class="col-md-4">
