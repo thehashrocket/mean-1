@@ -23,7 +23,23 @@
         </div>
     </div>
     <div class="row">
-        <p>{{property}}</p>
+        <ul>
+            <li data-ng-repeat="ticket in property.tickets">
+                <div class="pull-right" data-ng-show="authentication.user._id == property.user._id">
+                    <a class="btn btn-primary" href="/#!/properties/{{property._id}}/edit">
+                        <i class="glyphicon glyphicon-edit"></i>
+                    </a>
+                    <a class="btn btn-primary" data-ng-click="remove();">
+                        <i class="glyphicon glyphicon-trash"></i>
+                    </a>
+                </div>
+
+                <div class="">
+                    {{ticket.ticketName}}
+                    <p>{{ticket.ticketDescription}}</p>
+                </div>
+            </li>
+        </ul>
     </div>
     <div class="row">
         <form class="form-horizontal" data-ng-submit="addTicket(property,ticket)">
