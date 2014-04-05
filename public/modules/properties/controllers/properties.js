@@ -9,7 +9,7 @@ angular.module('mean.properties').controller('PropertiesController', ['$scope', 
             if (!property.updated) {
                 property.updated = [];
             }
-            property.tickets.push(ticket);
+            property.tickets.push()
             property.updated.push(new Date().getTime());
 
             property.$update(function() {
