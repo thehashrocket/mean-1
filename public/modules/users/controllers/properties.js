@@ -1,11 +1,10 @@
 'use strict';
 
-angular.module('mean.properties').controller('PropertiesController', ['$scope', '$stateParams', '$location', 'Authentication', 'Properties','PropertiesByUser',
-    function($scope, $stateParams, $location, Authentication, Properties, PropertiesByUser) {
+angular.module('mean.users').controller('UsersPropertiesController', ['$scope', '$filter', '$stateParams', '$location', 'Authentication', 'UserProperties','PropertiesByUser',
+    function($scope, $filter, $stateParams, $location, Authentication, UserProperties, PropertiesByUser) {
         $scope.authentication = Authentication;
 
         $scope.addTicket = function(property,ticket) {
-
             var property = $scope.property;
             if (!property.updated) {
                 property.updated = [];
@@ -14,12 +13,12 @@ angular.module('mean.properties').controller('PropertiesController', ['$scope', 
             property.updated.push(new Date().getTime());
 
             property.$update(function() {
-                $location.path('properties/' + property._id);
+                $location.path('users/properties/' + property._id);
             });
         };
 
         $scope.create = function() {
-            var property = new Properties({
+            var property = new UserProperties({
                 businessName: this.businessName,
                 streetAddress: this.streetAddress,
                 city: this.city,
@@ -31,7 +30,7 @@ angular.module('mean.properties').controller('PropertiesController', ['$scope', 
                 userID: Authentication.user._id
             });
             property.$save(function(response) {
-                $location.path('properties/' + response._id);
+                $location.path('users/properties/' + response._id);
             });
 
             this.businessName = '';
@@ -56,7 +55,7 @@ angular.module('mean.properties').controller('PropertiesController', ['$scope', 
                 }
             } else {
                 $scope.property.$remove(function() {
-                    $location.path('properties');
+                    $location.path('users/properties');
                 });
             }
         };
@@ -69,12 +68,17 @@ angular.module('mean.properties').controller('PropertiesController', ['$scope', 
             property.updated.push(new Date().getTime());
 
             property.$update(function() {
-                $location.path('properties/' + property._id);
+                $location.path('users/properties/' + property._id);
             });
         };
 
         $scope.find = function() {
-            Properties.query(function(properties) {
+            UserProperties.query(function(properties) {
+
+//                var result = properties;
+//
+//                result = ($filter('filter')(properties, result['userID'], Authentication.user._id));
+
                 $scope.properties = properties;
             });
         };
@@ -87,7 +91,7 @@ angular.module('mean.properties').controller('PropertiesController', ['$scope', 
         };
 
         $scope.findOne = function() {
-            Properties.get({
+            UserProperties.get({
                 propertyId: $stateParams.propertyId
             }, function(property) {
                 $scope.property = property;

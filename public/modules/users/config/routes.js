@@ -24,6 +24,22 @@ angular.module('mean.users').config(['$stateProvider',
         state('editProfile', {
             url: '/users/:userId/edit',
             templateUrl: 'modules/users/views/edit.html'
+        }).
+        state('listUserProperties', {
+            url: '/users/properties',
+            templateUrl: 'modules/users/views/properties/list.html'
+        }).
+        state('createUserProperty', {
+            url: '/users/properties/create',
+            templateUrl: 'modules/users/views/properties/create.html'
+        }).
+        state('viewUserProperty', {
+            url: '/users/properties/:propertyId',
+            templateUrl: 'modules/users/views/properties/view.html'
+        }).
+        state('editUserProperty', {
+            url: '/users/properties/:propertyId/edit',
+            templateUrl: 'modules/users/views/properties/edit.html'
         });
 	}
 ]);
