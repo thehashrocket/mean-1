@@ -85,21 +85,6 @@ exports.list = function(req, res) {
 };
 
 /**
- * List of Properties of User
- */
-exports.listByUser = function(req, res) {
-    Property.find({'userID': userID}).sort('-created').populate('user', 'displayName').exec(function(err, properties) {
-        if (err) {
-            res.render('error', {
-                status: 500
-            });
-        } else {
-            res.jsonp(properties);
-        }
-    });
-};
-
-/**
  * Property middleware
  */
 exports.propertyByID = function(req, res, next, userID) {
