@@ -125,7 +125,6 @@ angular.module('users').controller('UsersPropertiesController', ['$scope', '$fil
 				$scope.hasProperty = OwnerProperty;
 			});
         };
-
         $scope.selectedStudentsCount = function() {
             var count = 0;
             angular.forEach($scope.students, function(student){
@@ -133,7 +132,6 @@ angular.module('users').controller('UsersPropertiesController', ['$scope', '$fil
             });
             return count;
         };
-
         $scope.findOne = function() {
             UserProperties.get({
                 propertyId: $stateParams.propertyId
