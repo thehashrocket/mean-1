@@ -11,14 +11,6 @@ angular.module('mean.core').controller('HeaderController', ['$scope', 'Authentic
             uiRoute: '/properties'
         }];
 
-        $scope.findPropertyByUser = function() {
-            Properties.get({
-                userID: Authentication.user._id
-            }, function(property) {
-                $scope.hasProperty = property;
-            });
-        };
-
 		$scope.toggleCollapsibleMenu = function() {
 			$scope.isCollapsed = !$scope.isCollapsed;
 		};

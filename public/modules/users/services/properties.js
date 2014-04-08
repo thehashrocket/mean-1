@@ -10,13 +10,4 @@ angular.module('mean.users')
             method: 'PUT'
         }
     });
-}])
-    .factory('PropertiesByUser', ['$resource', function($resource) {
-        return $resource('properties/user/:userID', {
-            userID: 'userID'
-        }, {
-            update: {
-                method: 'PUT'
-            }
-        });
-    }]);
+}]);
