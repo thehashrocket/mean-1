@@ -75,10 +75,6 @@ angular.module('mean.users').controller('UsersPropertiesController', ['$scope', 
         $scope.find = function() {
             UserProperties.query(function(properties) {
 
-//                var result = properties;
-//
-//                result = ($filter('filter')(properties, result['userID'], Authentication.user._id));
-
                 $scope.properties = properties;
             });
         };
