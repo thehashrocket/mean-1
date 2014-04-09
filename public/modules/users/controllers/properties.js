@@ -76,6 +76,40 @@ angular.module('mean.users').controller('UsersPropertiesController', ['$scope', 
             UserProperties.query(function(properties) {
 
                 $scope.properties = properties;
+
+                $scope.hasTickets = function() {
+
+                    $scope.properties = properties;
+
+                    var count = 0;
+                    angular.forEach($scope.properties, function(property){
+
+                        angular.forEach(property, function(value, key) {
+
+                            if(key == 'tickets') {
+
+                                angular.forEach(value, function(value, key) {
+
+                                    angular.forEach(value, function(value, key) {
+                                        console.log(key + ': ' + value);
+                                        if (key === '_id' && value !== "") {
+                                            count += 1;
+                                        }
+
+                                    });
+
+                                });
+
+                            }
+
+                        });
+
+                    });
+
+                    return count;
+
+                };
+
             });
         };
 
@@ -84,6 +118,14 @@ angular.module('mean.users').controller('UsersPropertiesController', ['$scope', 
 			function(OwnerProperty) {
 				$scope.hasProperty = OwnerProperty;
 			});
+        };
+
+        $scope.selectedStudentsCount = function() {
+            var count = 0;
+            angular.forEach($scope.students, function(student){
+                count += student.isSelected ? 1 : 0;
+            });
+            return count;
         };
 
         $scope.findOne = function() {
