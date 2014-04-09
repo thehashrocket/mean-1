@@ -81,7 +81,6 @@ angular.module('users').controller('UsersPropertiesController', ['$scope', '$fil
                 $scope.size = window._.size(properties);
 
                 $scope.hasTickets = function() {
-
                     var count = 0;
                     angular.forEach($scope.properties, function(property){
 

@@ -3,29 +3,20 @@
         <h1>Properties</h1>
     </div>
 
-<<<<<<< HEAD
 <section>
 
 </section>
     <div class="list-group">
-        <p>There's <strong>{{hasTickets()}}</strong> Tickets currently open.</p>
 
-=======
-    <div class="list-group">
-        <p>Count: {{$scope.hasTickets()}}</p>
->>>>>>> counting tickets
+        <p>There's <strong>{{hasTickets()}}</strong> Tickets currently open.</p>
 
         <a data-ng-repeat="property in properties | filter:{userID:authentication.user._id}" data-ng-href="#!/users/properties/{{property._id}}/edit" class="list-group-item">
             <small class="list-group-item-text">{{property.created | date:'medium'}} / {{property.user.displayName}} / {{property.userID}}</small>
             <h4 class="list-group-item-heading">{{property.businessName}}</h4>
             <p class="list-group-item-text">{{property.content}}</p>
-<<<<<<< HEAD
 
-            <p>Number of tickets: {{testFunction(property.tickets)}}</p>
+            <p>Number of tickets: {{property.length}}</p>
 
-=======
-            <p>Number of visible people: {{property.length}}</p>
->>>>>>> counting tickets
         </a>
     </div>
     <div class="alert alert-warning text-center" data-ng-hide="!properties || properties.length">
