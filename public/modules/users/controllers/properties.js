@@ -1,11 +1,11 @@
 'use strict';
 
-angular.module('mean.users').controller('UsersPropertiesController', ['$scope', '$filter', '$stateParams', '$location', 'Authentication', 'UserProperties','PropertiesByUser',
-    function($scope, $filter, $stateParams, $location, Authentication, UserProperties, PropertiesByUser) {
+angular.module('mean.users').controller('UsersPropertiesController', ['$scope', '$filter', '$stateParams', '$location', 'Authentication', 'UserProperties','PropertiesByUser','Properties',
+    function($scope, $filter, $stateParams, $location, Authentication, UserProperties, PropertiesByUser, Properties) {
         $scope.authentication = Authentication;
 
         $scope.addTicket = function(property,ticket) {
-            var property = $scope.property;
+            property = $scope.property;
             if (!property.updated) {
                 property.updated = [];
             }

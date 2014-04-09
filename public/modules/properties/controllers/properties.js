@@ -6,7 +6,7 @@ angular.module('mean.properties').controller('PropertiesController', ['$scope', 
 
         $scope.addTicket = function(property,ticket) {
 
-            var property = $scope.property;
+            property = $scope.property;
             if (!property.updated) {
                 property.updated = [];
             }
