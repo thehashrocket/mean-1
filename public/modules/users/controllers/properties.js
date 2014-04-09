@@ -79,20 +79,17 @@ angular.module('mean.users').controller('UsersPropertiesController', ['$scope', 
 
                 $scope.hasTickets = function() {
 
-                    $scope.properties = properties;
-
                     var count = 0;
                     angular.forEach($scope.properties, function(property){
 
                         angular.forEach(property, function(value, key) {
 
-                            if(key == 'tickets') {
+                            if(key === 'tickets') {
 
                                 angular.forEach(value, function(value, key) {
 
                                     angular.forEach(value, function(value, key) {
-                                        console.log(key + ': ' + value);
-                                        if (key === '_id' && value !== "") {
+                                        if (key === '_id' && value !== '') {
                                             count += 1;
                                         }
 
