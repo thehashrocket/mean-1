@@ -86,7 +86,6 @@ angular.module('users').controller('UsersPropertiesController', ['$scope', '$fil
                     angular.forEach($scope.properties, function(property){
 
                         angular.forEach(property, function(value, key) {
-
                             if(key === 'tickets') {
 
                                 angular.forEach(value, function(value, key) {
