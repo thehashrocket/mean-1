@@ -10,7 +10,7 @@
             <small class="list-group-item-text">{{property.created | date:'medium'}} / {{property.user.displayName}} / {{property.userID}}</small>
             <h4 class="list-group-item-heading">{{property.businessName}}</h4>
             <p class="list-group-item-text">{{property.content}}</p>
-            <p>Number of tickets: {{property.length}}</p>
+            <p>Number of tickets: {{property.tickets}}</p>
         </a>
     </div>
     <div class="alert alert-warning text-center" data-ng-hide="!properties || properties.length">
