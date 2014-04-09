@@ -10,8 +10,7 @@ angular.module('mean.properties')
             method: 'PUT'
         }
     });
-}]).factory('Tickets', ['$resource',
-    function($resource){
+}]).factory('Tickets', ['$resource', function($resource){
     return $resource('properties/tickets/:propertyId', {
         propertyId: '@_id'
     }, {
