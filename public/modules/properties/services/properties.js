@@ -34,4 +34,4 @@ angular.module('mean.properties')
                 method: 'PUT'
             }
         });
-}]);
+    }]);
