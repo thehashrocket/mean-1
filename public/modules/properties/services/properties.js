@@ -26,4 +26,12 @@ angular.module('mean.properties')
             method: 'PUT'
         }
     });
+}]).factory('UserProperties', ['$resource', function($resource) {
+        return $resource('users/properties/:propertyId', {
+            propertyId: '@_id'
+        }, {
+            update: {
+                method: 'PUT'
+            }
+        });
 }]);

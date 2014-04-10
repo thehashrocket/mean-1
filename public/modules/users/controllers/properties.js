@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('mean.users').controller('UsersPropertiesController', ['$scope', '$filter', '$stateParams', '$location', 'Authentication', 'UserProperties','PropertiesByUser','Properties',
-    function($scope, $filter, $stateParams, $location, Authentication, UserProperties, PropertiesByUser, Properties) {
+    function($scope, $filter, $stateParams, $location, Authentication, UserProperties, PropertiesByUser) {
         $scope.authentication = Authentication;
 
         $scope.addTicket = function(property,ticket) {
