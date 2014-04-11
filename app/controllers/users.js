@@ -6,6 +6,8 @@
 var mongoose = require('mongoose'),
 	passport = require('passport'),
 	User = mongoose.model('User'),
+    Property = mongoose.model('Property'),
+
 	_ = require('lodash');
 
 var getErrorMessage = function(err) {
@@ -28,6 +30,14 @@ var getErrorMessage = function(err) {
 
 	return message;
 };
+
+/**
+ * Show the current profile
+ */
+exports.read = function(req, res) {
+    res.jsonp(req.user);
+};
+
 
 /**
  * Signup

@@ -5,12 +5,12 @@ angular.module('users').controller('SettingsController', ['$scope', '$http', '$l
 		$scope.user = Authentication.user;
 
 		//If user is not signed in then redirect back home
+
 		if (!$scope.user) $location.path('/');
 
 		$scope.updateUserProfile = function() {
 			$scope.success = $scope.error = null;
 			var user = new Users($scope.user);
-
 			user.$update(function(response) {
 				$scope.success = true;
 				Authentication.user = response;

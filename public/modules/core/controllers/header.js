@@ -1,19 +1,15 @@
 'use strict';
 
-angular.module('core').controller('HeaderController', ['$scope', 'Authentication',
-	function($scope, Authentication) {
+angular.module('core').controller('HeaderController', ['$scope', 'Authentication', 'Properties',
+	function($scope, Authentication, Properties) {
 		$scope.authentication = Authentication;
 		$scope.isCollapsed = false;
 
 		$scope.menu = [{
-			title: 'Articles',
-			link: 'articles',
-			uiRoute: '/articles'
-		}, {
-			title: 'New Article',
-			link: 'articles/create',
-			uiRoute: '/articles/create'
-		}];
+            title: 'Properties',
+            link: 'properties',
+            uiRoute: '/properties'
+        }];
 
 		$scope.toggleCollapsibleMenu = function() {
 			$scope.isCollapsed = !$scope.isCollapsed;

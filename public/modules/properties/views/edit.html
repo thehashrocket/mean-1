@@ -1,0 +1,75 @@
+<section data-ng-controller="PropertiesController" data-ng-init="findOne()">
+    <div class="page-header">
+        <h1>Edit Article</h1>
+    </div>
+    <div class="col-md-12">
+        <form class="form-horizontal" data-ng-submit="update()">
+            <fieldset>
+                <div class="form-group">
+                    <label class="control-label" for="businessName">Title</label>
+                    <div class="controls">
+                        <input type="text" data-ng-model="property.businessName" id="businessName" class="form-control" placeholder="Business Name" required>
+                    </div>
+                </div>
+                <!-- Street Address -->
+                <div class="row">
+                    <div class="form-group col-md-12">
+                        <label class="control-label" for="streetAddress">Street Address</label>
+                        <div class="controls">
+                            <input type="text" data-ng-model="property.streetAddress" id="streetAddress" class="form-control" placeholder="Street Address">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <!-- City -->
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="control-label" for="city">City</label>
+                            <input type="text" data-ng-model="property.city" id="city" class="form-control" placeholder="City">
+                        </div>
+                    </div>
+                    <!-- State -->
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="control-label" for="state">State</label>
+                            <input type="text" data-ng-model="property.state" id="state" class="form-control" placeholder="State">
+                        </div>
+                    </div>
+                    <!-- Zip -->
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="control-label" for="zip">Zip</label>
+                            <input type="text" data-ng-model="property.zip" id="zip" class="form-control" placeholder="Zip">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <!-- MDU Checkbox -->
+                    <div class="col-md-3">
+                        <div class="checkbox">
+                            <label>
+                                <input data-ng-model="property.mdu" type="checkbox">Is this a Multi Dwelling Unit (MDU) - <em>for example apartment building</em>?
+                            </label>
+                        </div>
+                    </div>
+                    <!-- # of Units -->
+                    <div class="col-md-8">
+                        <div class="form-group">
+                            <label class="control-label" for="units"># of Units</label>
+                            <input type="text" data-ng-model="units" id="units" class="form-control" placeholder="# of Units">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="content">Content</label>
+                    <div class="controls">
+                        <textarea data-ng-model="property.content" id="content" class="form-control" cols="30" rows="10" placeholder="Content"></textarea>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Update" class="btn btn-default">
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</section>
