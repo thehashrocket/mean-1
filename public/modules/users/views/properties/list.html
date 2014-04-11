@@ -3,6 +3,9 @@
         <h1>Properties</h1>
     </div>
 
+<section>
+
+</section>
     <div class="list-group">
         <p>There's <strong>{{hasTickets()}}</strong> Tickets currently open.</p>
 
@@ -10,7 +13,7 @@
             <small class="list-group-item-text">{{property.created | date:'medium'}} / {{property.user.displayName}} / {{property.userID}}</small>
             <h4 class="list-group-item-heading">{{property.businessName}}</h4>
             <p class="list-group-item-text">{{property.content}}</p>
-            <p>Number of tickets: {{property.tickets}}</p>
+            <p>Number of tickets: {{testFunction(property.tickets)}}</p>
         </a>
     </div>
     <div class="alert alert-warning text-center" data-ng-hide="!properties || properties.length">
