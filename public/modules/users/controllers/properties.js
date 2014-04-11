@@ -1,8 +1,9 @@
 'use strict';
 
-angular.module('mean.users').controller('UsersPropertiesController', ['$scope', '$filter', '$stateParams', '$location', 'Authentication', 'UserProperties','PropertiesByUser','Properties',
-    function($scope, $filter, $stateParams, $location, Authentication, UserProperties, PropertiesByUser) {
+angular.module('mean.users').controller('UsersPropertiesController', ['$scope', '$filter', '$stateParams', '$location', 'Authentication', 'UserProperties','PropertiesByUser','Properties','_',
+    function($scope, $filter, $stateParams, $location, Authentication, UserProperties, PropertiesByUser, _) {
         $scope.authentication = Authentication;
+
 
         $scope.addTicket = function(property,ticket) {
             property = $scope.property;
@@ -77,6 +78,10 @@ angular.module('mean.users').controller('UsersPropertiesController', ['$scope', 
 
                 $scope.properties = properties;
 
+                $scope.size = window._.size(properties);
+
+                window._.size({one: 1, two: 2, three: 3});
+
                 $scope.hasTickets = function() {
 
                     var count = 0;
@@ -106,6 +111,12 @@ angular.module('mean.users').controller('UsersPropertiesController', ['$scope', 
                     return count;
 
                 };
+
+                $scope.testFunction = function(variable) {
+
+                    return window._.size(variable);
+
+                }
 
             });
         };
