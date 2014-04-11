@@ -10,4 +10,4 @@ angular.module('mean.users')
             method: 'PUT'
         }
     });
-}]);
+}])

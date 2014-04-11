@@ -62,10 +62,11 @@
 		var user = {{ user | json | safe }};
 	</script>
 
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+
 	<!--AngularJS-->
 	<script type="text/javascript" src="/lib/angular/angular.js"></script>
-    <script type="text/javascript" src="/js/lodash.js"></script>
-    <script type="text/javascript" src="/js/angular-lodash.js"></script>
 	<script type="text/javascript" src="/lib/angular-resource/angular-resource.js"></script>
 	<script type="text/javascript" src="/lib/angular-cookies/angular-cookies.js"></script>
 	<script type="text/javascript" src="/lib/angular-animate/angular-animate.js"></script>
@@ -74,10 +75,20 @@
 	<script type="text/javascript" src="/lib/angular-bootstrap/ui-bootstrap.js"></script>
 	<script type="text/javascript" src="/lib/angular-ui-utils/ui-utils.js"></script>
 	<script type="text/javascript" src="/lib/angular-ui-router/release/angular-ui-router.js"></script>
+    <script type="text/javascript" src="/lib/angular-underscore-module/angular-underscore-module.js"></script>
+
+
+    <script type="text/javascript" src="/js/script.min.js"></script>
+
+
+    <script src="//documentcloud.github.io/underscore/underscore-min.js"></script>
 
 	<!--AngularJS Application Init-->
 	<script type="text/javascript" src="/js/config.js"></script>
 	<script type="text/javascript" src="/js/application.js"></script>
+
+
+
 
 	<!--Application Modules-->
 	{% for modulesJSFile in modulesJSFiles %}
