@@ -1,8 +1,14 @@
 <section data-ng-controller="UsersPropertiesController" data-ng-init="findOne()">
     <div class="page-header">
-        <h1>Edit Article</h1>
+        <h1>{{property.businessName}}</h1>
+        <p><small>{{property.streetAddress}}</small></p>
     </div>
-    <div class="col-md-12">
+    <div class="row">
+        <div class="col-md-12">
+            <a ng-model="collapsed" ng-click="collapsed=!collapsed">Click here to <strong>Toggle (show/hide)</strong> description</a>
+        </div>
+    </div>
+    <div class="col-md-12 propertyEditor" data-ng-show="collapsed">
         <form class="form-horizontal" data-ng-submit="update()">
             <fieldset>
                 <div class="form-group">
@@ -71,5 +77,10 @@
                 </div>
             </fieldset>
         </form>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+
+        </div>
     </div>
 </section>
