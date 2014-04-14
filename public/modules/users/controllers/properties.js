@@ -80,8 +80,6 @@ angular.module('users').controller('UsersPropertiesController', ['$scope', '$fil
 
                 $scope.size = window._.size(properties);
 
-                window._.size({one: 1, two: 2, three: 3});
-
                 $scope.hasTickets = function() {
 
                     var count = 0;
