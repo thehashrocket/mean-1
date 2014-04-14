@@ -80,8 +80,6 @@ angular.module('mean.users').controller('UsersPropertiesController', ['$scope', 
 
                 $scope.size = window._.size(properties);
 
-                window._.size({one: 1, two: 2, three: 3});
-
                 $scope.hasTickets = function() {
 
                     var count = 0;
