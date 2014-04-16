@@ -5,6 +5,7 @@ angular.module('users').controller('SettingsController', ['$scope', '$http', '$l
 		$scope.user = Authentication.user;
 
 		// If user is not signed in then redirect back home
+
 		if (!$scope.user) $location.path('/');
 
 		// Check if there are additional accounts 
@@ -41,6 +42,7 @@ angular.module('users').controller('SettingsController', ['$scope', '$http', '$l
 		// Update a user profile
 		$scope.updateUserProfile = function() {
 			$scope.success = $scope.error = null;
+
 			var user = new Users(
                 $scope.user
             );

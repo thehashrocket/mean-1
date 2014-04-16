@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('mean.properties').controller('PropertiesController', ['$scope', '$stateParams', '$location', 'Authentication', 'Properties','PropertiesByUser',
+angular.module('properties').controller('PropertiesController', ['$scope', '$stateParams', '$location', 'Authentication', 'Properties','PropertiesByUser',
     function($scope, $stateParams, $location, Authentication, Properties, PropertiesByUser) {
         $scope.authentication = Authentication;
 

@@ -1,7 +1,8 @@
 'use strict';
 
 //Setting up route
-angular.module('mean.properties').config(['$stateProvider',
+angular.module('properties').config(['$stateProvider',
+
 	function($stateProvider) {
 		// Properties state routing
 		$stateProvider.

@@ -1,5 +1,91 @@
 <section class="row" data-ng-controller="SettingsController">
 	<h3 class="col-md-12 text-center">Edit your profile</h3>
+<<<<<<< HEAD
+
+	<div class="col-sm-12">
+=======
+<<<<<<< HEAD
+	<div class="col-xs-offset-2 col-xs-8 col-md-offset-5 col-md-2">
+>>>>>>> 8b54f081057a7d511a6aa507417e603aa0b5fc23
+		<form data-ng-submit="updateUserProfile()" class="signin form-horizontal" autocomplete="off">
+			<fieldset>
+				<!-- First Name and Last Name -->
+				<div class="form-group">
+
+					<div class="col-sm-6">
+						<label class="control-label" for="firstName">First Name</label>
+						<div class="controls">
+							<input type="text" data-ng-model="user.firstName" id="firstName" class="form-control" placeholder="{{user.firstName}}" required>
+						</div>
+					</div>
+
+					<div class="col-sm-6">
+						<label class="control-label" for="lastName">Last Name</label>
+						<div class="controls">
+							<input type="text" data-ng-model="user.lastName" id="lastName" class="form-control" placeholder="{{user.lastName}}" required>
+						</div>
+					</div>
+
+				</div>
+
+				<!-- Phone Number -->
+				<div class="form-group">
+
+					<div class="col-sm-6">
+						<label class="control-label" for="phoneNumber">Phone Number</label>
+						<div class="controls">
+							<input type="text" data-ng-model="user.phoneNumber" id="phoneNumber" class="form-control" placeholder="{{user.phoneNumber}}" required>
+						</div>
+					</div>
+
+				</div>
+
+				<!-- Street Address and Apt / Unit -->
+				<div class="form-group">
+
+					<div class="col-sm-6">
+						<label class="control-label" for="streetAddress">Street Address</label>
+						<div class="controls">
+							<input type="text" data-ng-model="user.streetAddress" id="streetAddress" class="form-control" placeholder="{{user.streetAddress}}" required>
+						</div>
+					</div>
+
+					<div class="col-sm-6">
+						<label class="control-label" for="unitNumber">Apt / Unit</label>
+						<div class="controls">
+							<input type="text" data-ng-model="user.unitNumber" id="unitNumber" class="form-control" placeholder="{{user.unitNumber}}" required>
+						</div>
+					</div>
+
+				</div>
+
+				<!-- City and State -->
+				<div class="form-group">
+
+					<div class="col-sm-4">
+						<label class="control-label" for="city">City</label>
+						<div class="controls">
+							<input type="text" data-ng-model="user.city" id="city" class="form-control" placeholder="{{user.city}}" required>
+						</div>
+					</div>
+
+					<div class="col-sm-4">
+						<label class="control-label" for="state">State / Province</label>
+						<div class="controls">
+							<input type="text" data-ng-model="user.state" id="state" class="form-control" placeholder="{{user.state}}" required>
+						</div>
+					</div>
+
+					<div class="col-sm-4">
+						<label class="control-label" for="zip">Zip / Postal Code</label>
+						<div class="controls">
+							<input type="text" data-ng-model="user.zip" id="zip" class="form-control" placeholder="{{user.zip}}" required>
+						</div>
+					</div>
+
+				</div>
+				<div class="text-center form-group">
+					<button type="submit" class="btn btn-large btn-primary">Save Profile</button>
 
 	<div class="col-sm-12">
 		<form data-ng-submit="updateUserProfile()" class="signin form-horizontal" autocomplete="off">
@@ -79,11 +165,16 @@
 					</div>
 
 				</div>
+>>>>>>> 8b54f081057a7d511a6aa507417e603aa0b5fc23
 
 				<div class="form-group">
 					<div class="col-sm-12">
 						<input type="submit" value="Update" class="btn btn-default">
 					</div>
+<<<<<<< HEAD
+=======
+>>>>>>> develop
+>>>>>>> 8b54f081057a7d511a6aa507417e603aa0b5fc23
 				</div>
 				<div data-ng-show="success" class="text-center text-success">
 					<strong>Profile Saved Successfully</strong>

@@ -89,6 +89,13 @@ var UserSchema = new Schema({
 		required: 'Please fill in a username',
 		trim: true
 	},
+
+    propertyYes: {
+        type: Boolean,
+        default: '',
+        trim: true
+    },
+
 	password: {
 		type: String,
 		default: '',
