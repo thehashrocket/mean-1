@@ -1,75 +1,101 @@
 <section data-ng-controller="UsersPropertiesController" data-ng-init="findOne()">
     <div class="page-header">
-        <h1>Edit Article</h1>
+        <h1>{{property.businessName}}</h1>
+        <p><small>{{property.streetAddress}}</small></p>
     </div>
-    <div class="col-md-12">
-        <form class="form-horizontal" data-ng-submit="update()">
-            <fieldset>
-                <div class="form-group">
-                    <label class="control-label" for="businessName">Title</label>
-                    <div class="controls">
-                        <input type="text" data-ng-model="property.businessName" id="businessName" class="form-control" placeholder="Business Name" required>
-                    </div>
-                </div>
-                <!-- Street Address -->
-                <div class="row">
-                    <div class="form-group col-md-12">
-                        <label class="control-label" for="streetAddress">Street Address</label>
+    <div class="row">
+        <div class="col-md-12">
+            <a ng-model="collapsed" ng-click="collapsed=!collapsed">Click here to <strong>(show/hide)</strong> the property editor.</a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 propertyEditor" data-ng-show="collapsed">
+            <form class="form-horizontal" data-ng-submit="update()">
+                <fieldset>
+                    <div class="form-group">
+                        <label class="control-label" for="businessName">Title</label>
                         <div class="controls">
-                            <input type="text" data-ng-model="property.streetAddress" id="streetAddress" class="form-control" placeholder="Street Address">
+                            <input type="text" data-ng-model="property.businessName" id="businessName" class="form-control" placeholder="Business Name" required>
                         </div>
                     </div>
-                </div>
-                <div class="row">
-                    <!-- City -->
+                    <!-- Street Address -->
+                    <div class="row">
+                        <div class="form-group col-md-12">
+                            <label class="control-label" for="streetAddress">Street Address</label>
+                            <div class="controls">
+                                <input type="text" data-ng-model="property.streetAddress" id="streetAddress" class="form-control" placeholder="Street Address">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <!-- City -->
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label class="control-label" for="city">City</label>
+                                <input type="text" data-ng-model="property.city" id="city" class="form-control" placeholder="City">
+                            </div>
+                        </div>
+                        <!-- State -->
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label class="control-label" for="state">State</label>
+                                <input type="text" data-ng-model="property.state" id="state" class="form-control" placeholder="State">
+                            </div>
+                        </div>
+                        <!-- Zip -->
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label class="control-label" for="zip">Zip</label>
+                                <input type="text" data-ng-model="property.zip" id="zip" class="form-control" placeholder="Zip">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <!-- MDU Checkbox -->
+                        <div class="col-md-3">
+                            <div class="checkbox">
+                                <label>
+                                    <input data-ng-model="property.mdu" type="checkbox">Is this a Multi Dwelling Unit (MDU) - <em>for example apartment building</em>?
+                                </label>
+                            </div>
+                        </div>
+                        <!-- # of Units -->
+                        <div class="col-md-8">
+                            <div class="form-group">
+                                <label class="control-label" for="units"># of Units</label>
+                                <input type="text" data-ng-model="units" id="units" class="form-control" placeholder="# of Units">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label" for="content">Content</label>
+                        <div class="controls">
+                            <textarea data-ng-model="property.content" id="content" class="form-control" cols="30" rows="10" placeholder="Content"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Update" class="btn btn-default">
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <ul>
+                <li class="list-group-item clearfix" data-ng-repeat="ticket in property.tickets">
                     <div class="col-md-4">
-                        <div class="form-group">
-                            <label class="control-label" for="city">City</label>
-                            <input type="text" data-ng-model="property.city" id="city" class="form-control" placeholder="City">
-                        </div>
+                        {{ticket.ticketName}}
+                        <p>{{ticket.ticketDescription}}</p>
                     </div>
-                    <!-- State -->
-                    <div class="col-md-4">
-                        <div class="form-group">
-                            <label class="control-label" for="state">State</label>
-                            <input type="text" data-ng-model="property.state" id="state" class="form-control" placeholder="State">
-                        </div>
+                    <div class="col-md-8" data-ng-show="authentication.user._id == property.user._id">
+                        <a class="btn btn-primary" data-ng-click="remove();">
+                            <i class="glyphicon glyphicon-trash"></i>
+                        </a>
+
                     </div>
-                    <!-- Zip -->
-                    <div class="col-md-4">
-                        <div class="form-group">
-                            <label class="control-label" for="zip">Zip</label>
-                            <input type="text" data-ng-model="property.zip" id="zip" class="form-control" placeholder="Zip">
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <!-- MDU Checkbox -->
-                    <div class="col-md-3">
-                        <div class="checkbox">
-                            <label>
-                                <input data-ng-model="property.mdu" type="checkbox">Is this a Multi Dwelling Unit (MDU) - <em>for example apartment building</em>?
-                            </label>
-                        </div>
-                    </div>
-                    <!-- # of Units -->
-                    <div class="col-md-8">
-                        <div class="form-group">
-                            <label class="control-label" for="units"># of Units</label>
-                            <input type="text" data-ng-model="units" id="units" class="form-control" placeholder="# of Units">
-                        </div>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="control-label" for="content">Content</label>
-                    <div class="controls">
-                        <textarea data-ng-model="property.content" id="content" class="form-control" cols="30" rows="10" placeholder="Content"></textarea>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <input type="submit" value="Update" class="btn btn-default">
-                </div>
-            </fieldset>
-        </form>
+                </li>
+            </ul>
+        </div>
     </div>
 </section>
