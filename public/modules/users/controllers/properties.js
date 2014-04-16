@@ -4,7 +4,6 @@ angular.module('users').controller('UsersPropertiesController', ['$scope', '$fil
     function($scope, $filter, $stateParams, $location, Authentication, UserProperties, PropertiesByUser) {
         $scope.authentication = Authentication;
 
-
         $scope.addTicket = function(property,ticket) {
             property = $scope.property;
             if (!property.updated) {
@@ -81,10 +80,12 @@ angular.module('users').controller('UsersPropertiesController', ['$scope', '$fil
                 $scope.size = window._.size(properties);
 
                 $scope.hasTickets = function() {
+
                     var count = 0;
                     angular.forEach($scope.properties, function(property){
 
                         angular.forEach(property, function(value, key) {
+
                             if(key === 'tickets') {
 
                                 angular.forEach(value, function(value, key) {
@@ -111,7 +112,6 @@ angular.module('users').controller('UsersPropertiesController', ['$scope', '$fil
                 $scope.testFunction = function(variable) {
 
                     return window._.size(variable);
-
                 }
 
             });

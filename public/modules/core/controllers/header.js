@@ -1,12 +1,7 @@
 'use strict';
 
-<<<<<<< HEAD
 angular.module('core').controller('HeaderController', ['$scope', 'Authentication','Properties', 'UserProperties',
 	function($scope, Authentication, Properties, UserProperties) {
-=======
-angular.module('core').controller('HeaderController', ['$scope', 'Authentication','Properties',
-	function($scope, Authentication, Properties) {
->>>>>>> trying to load property by USERID
 		$scope.authentication = Authentication;
 		$scope.isCollapsed = false;
 

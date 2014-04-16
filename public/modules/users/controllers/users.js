@@ -1,6 +1,5 @@
 'use strict';
-
-angular.module('mean.users').controller('UsersController', ['$scope', '$stateParams', '$location', 'Authentication', 'Users',
+angular.module('users').controller('UsersController', ['$scope', '$stateParams', '$location', 'Authentication', 'Users',
     function($scope, $stateParams, $location, Authentication, Users) {
 
         $scope.authentication = Authentication;

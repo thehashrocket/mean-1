@@ -5,7 +5,10 @@ angular.module('properties')
     .factory('Properties', ['$resource', function($resource) {
     return $resource('properties/:propertyId', {
         propertyId: '@_id'
+<<<<<<< HEAD
 
+=======
+>>>>>>> 9755c95e3fb3375fa377e4f6efa5f88ade97413b
     }, {
         update: {
             method: 'PUT'
@@ -35,4 +38,8 @@ angular.module('properties')
                 method: 'PUT'
             }
         });
+<<<<<<< HEAD
     }]);
+=======
+    }]);
+>>>>>>> 9755c95e3fb3375fa377e4f6efa5f88ade97413b
