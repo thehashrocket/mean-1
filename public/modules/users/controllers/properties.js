@@ -112,7 +112,7 @@ angular.module('users').controller('UsersPropertiesController', ['$scope', '$fil
                 $scope.testFunction = function(variable) {
 
                     return window._.size(variable);
-                }
+                };
 
             });
         };

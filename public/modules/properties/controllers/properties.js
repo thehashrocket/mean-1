@@ -1,18 +1,11 @@
 'use strict';
 
-<<<<<<< HEAD
-angular.module('mean.properties').controller('PropertiesController', ['$scope', '$stateParams', '$location', 'Authentication', 'Properties','PropertiesByUser',
-=======
 angular.module('properties').controller('PropertiesController', ['$scope', '$stateParams', '$location', 'Authentication', 'Properties','PropertiesByUser',
->>>>>>> 9755c95e3fb3375fa377e4f6efa5f88ade97413b
     function($scope, $stateParams, $location, Authentication, Properties, PropertiesByUser) {
         $scope.authentication = Authentication;
 
         $scope.addTicket = function(property,ticket) {
-<<<<<<< HEAD
-=======
 
->>>>>>> 9755c95e3fb3375fa377e4f6efa5f88ade97413b
             property = $scope.property;
             if (!property.updated) {
                 property.updated = [];
@@ -85,10 +78,6 @@ angular.module('properties').controller('PropertiesController', ['$scope', '$sta
                 $scope.properties = properties;
             });
         };
-<<<<<<< HEAD
-=======
-
->>>>>>> 9755c95e3fb3375fa377e4f6efa5f88ade97413b
         $scope.findPropertyByUser = function() {
 			PropertiesByUser.get({userID: Authentication.user._id},
 			function(OwnerProperty) {

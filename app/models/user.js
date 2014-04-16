@@ -90,12 +90,6 @@ var UserSchema = new Schema({
 		trim: true
 	},
 
-    propertyYes: {
-        type: Boolean,
-        default: '',
-        trim: true
-    },
-
 	password: {
 		type: String,
 		default: '',

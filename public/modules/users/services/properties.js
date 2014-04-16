@@ -10,4 +10,4 @@ angular.module('users')
             method: 'PUT'
         }
     });
-}])
+}]);
