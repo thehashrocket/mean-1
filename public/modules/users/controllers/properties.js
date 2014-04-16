@@ -79,13 +79,6 @@ angular.module('users').controller('UsersPropertiesController', ['$scope', '$fil
                 $scope.properties = properties;
 
                 $scope.size = window._.size(properties);
-<<<<<<< HEAD
-=======
-
-                window._.size({one: 1, two: 2, three: 3});
-
-                $scope.hasTickets = function() {
->>>>>>> counting tickets works now
 
                 $scope.hasTickets = function() {
                     var count = 0;
