@@ -5,7 +5,6 @@ angular.module('users').controller('SettingsController', ['$scope', '$http', '$l
 		$scope.user = Authentication.user;
 
 		// If user is not signed in then redirect back home
-
 		if (!$scope.user) $location.path('/');
 
 		// Check if there are additional accounts 
@@ -16,7 +15,7 @@ angular.module('users').controller('SettingsController', ['$scope', '$http', '$l
 
 			return false;
 		};
-		
+
 		// Check if provider is already in use with current user
 		$scope.isConnectedSocialAccount = function(provider) {
 			return $scope.user.provider === provider || ($scope.user.additionalProvidersData && $scope.user.additionalProvidersData[provider]);
@@ -42,10 +41,7 @@ angular.module('users').controller('SettingsController', ['$scope', '$http', '$l
 		// Update a user profile
 		$scope.updateUserProfile = function() {
 			$scope.success = $scope.error = null;
-
-			var user = new Users(
-                $scope.user
-            );
+			var user = new Users($scope.user);
 
 			user.$update(function(response) {
 				$scope.success = true;
@@ -67,7 +63,5 @@ angular.module('users').controller('SettingsController', ['$scope', '$http', '$l
 				$scope.error = response.message;
 			});
 		};
-
-
 	}
 ]);
