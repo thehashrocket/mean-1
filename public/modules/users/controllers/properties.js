@@ -109,7 +109,7 @@ angular.module('users').controller('UsersPropertiesController', ['$scope', '$fil
 
                 };
 
-                $scope.testFunction = function(variable) {
+                $scope.getLenth = function(variable) {
 
                     return window._.size(variable);
                 };
