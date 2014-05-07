@@ -11,9 +11,9 @@ module.exports = {
         callbackURL: 'http://localhost:3000/auth/facebook/callback'
     },
 	twitter: {
-		clientID: 'CONSUMER_KEY',
-		clientSecret: 'CONSUMER_SECRET',
-		callbackURL: 'http://localhost:3000/auth/twitter/callback'
+		clientID: process.env.TWITTER_KEY || 'CONSUMER_KEY',
+		clientSecret: process.env.TWITTER_SECRET || 'CONSUMER_SECRET',
+		callbackPath: '/auth/twitter/callback'
 	},
 	google: {
 		clientID: '196438243219-borpoe3i3irm94fokv9esg4h1vjs9n4q.apps.googleusercontent.com',
@@ -21,8 +21,8 @@ module.exports = {
 		callbackURL: 'http://localhost:3000/auth/google/callback'
 	},
 	linkedin: {
-		clientID: 'APP_ID',
-		clientSecret: 'APP_SECRET',
-		callbackURL: 'http://localhost:3000/auth/linkedin/callback'
+		clientID: process.env.LINKEDIN_ID || 'APP_ID',
+		clientSecret: process.env.LINKEDIN_SECRET || 'APP_SECRET',
+		callbackPath: '/auth/linkedin/callback'
 	}
 };
