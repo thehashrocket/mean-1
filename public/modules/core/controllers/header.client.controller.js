@@ -2,7 +2,7 @@
 
 
 angular.module('core').controller('HeaderController', ['$scope', 'Authentication', 'Menus','Properties', 'UserProperties',
-	function($scope, Authentication, Menus, UserProperties) {
+	function($scope, Authentication, Menus, Properties, UserProperties) {
 		$scope.authentication = Authentication;
 		$scope.isCollapsed = false;
 		$scope.menu = Menus.getMenu('topbar');
