@@ -3,7 +3,7 @@
 module.exports = {
 	db: 'mongodb://localhost/mean-dev',
 	app: {
-		title: 'Real Estate Community App'
+		title: 'MEAN.JS - Development Environment'
 	},
     facebook: {
         clientID: '408616955926361',
@@ -13,7 +13,7 @@ module.exports = {
 	twitter: {
 		clientID: process.env.TWITTER_KEY || 'CONSUMER_KEY',
 		clientSecret: process.env.TWITTER_SECRET || 'CONSUMER_SECRET',
-		callbackPath: '/auth/twitter/callback'
+		callbackURL: 'http://localhost:3000/auth/twitter/callback'
 	},
 	google: {
 		clientID: '196438243219-borpoe3i3irm94fokv9esg4h1vjs9n4q.apps.googleusercontent.com',
@@ -23,6 +23,6 @@ module.exports = {
 	linkedin: {
 		clientID: process.env.LINKEDIN_ID || 'APP_ID',
 		clientSecret: process.env.LINKEDIN_SECRET || 'APP_SECRET',
-		callbackPath: '/auth/linkedin/callback'
+		callbackURL: 'http://localhost:3000/auth/linkedin/callback'
 	}
 };
